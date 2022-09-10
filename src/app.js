@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
+import { indexRouter } from "./routers/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,9 +13,7 @@ export async function createServer({ port = 3000 }) {
 
   fastify.register(fastifyStatic, { root: path.join(__dirname, "../public") });
 
-  fastify.get("/", async () => {
-    return "Fastify + React = 🦐";
-  });
+  fastify.register(indexRouter);
 
   try {
     await fastify.listen({ port });

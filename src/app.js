@@ -1,9 +1,8 @@
-"use strict";
 import path from "path";
 import { fileURLToPath } from "url";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
-import { indexRouter } from "./routers/index.js";
+import { indexRouter } from "./routers/indexRouter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

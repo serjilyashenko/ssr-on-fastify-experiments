@@ -1,3 +1,3 @@
-import {createServer} from './src/app.js'
+import { createServer } from "./src/app.js";
 
-createServer({port: 3000})
+createServer({ port: 3000 });

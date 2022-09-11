@@ -1,8 +1,8 @@
+import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 
-export function renderReactElement(reactElement) {
+export function renderReactComponent(Component) {
   return `
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -19,11 +19,13 @@ export function renderReactElement(reactElement) {
 </head>
 <body>
 
-${renderToString(reactElement)}
+<div id="root">${renderToString(createElement(Component))}</div>
 
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>window.pageComponentName = "${Component.name}";</script>
+<script type="module" src="/bundle.js"></script>
 </body>
 </html>
-
-
 `;
 }

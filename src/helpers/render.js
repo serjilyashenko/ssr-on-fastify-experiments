@@ -1,7 +1,6 @@
-import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 
-export function renderReactComponent(Component) {
+export function renderReactElement(reactElement) {
   return `
 
 <!doctype html>
@@ -20,7 +19,7 @@ export function renderReactComponent(Component) {
 </head>
 <body>
 
-${renderToString(createElement(Component))}
+${renderToString(reactElement)}
 
 </body>
 </html>

@@ -1,4 +1,6 @@
 /* global React */
+import SuperLink from "./components/SuperLink.js";
+
 const { createElement, useState, Fragment } = React;
 
 export function Index() {
@@ -9,7 +11,11 @@ export function Index() {
     Fragment,
     null,
     createElement("h1", null, "Hello Fastify And React 🦐"),
-    createElement("div", null, createElement("a", { href: "/about" }, "About")),
+    createElement(
+      "div",
+      null,
+      createElement(SuperLink, { href: "/about" }, "About")
+    ),
     createElement(
       "p",
       null,
@@ -44,5 +50,3 @@ export function Index() {
     )
   );
 }
-
-export default Index;

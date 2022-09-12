@@ -1,10 +1,10 @@
+import { App } from "./static/App.js";
+
 const { createElement } = window.React;
 const { hydrateRoot } = window.ReactDOM;
 
-(async function () {
-  const { default: Component } = await import(
-    `./pages/${window.pageComponentName}.js`
-  );
+window.isServerCode = false;
 
-  hydrateRoot(document.getElementById("root"), createElement(Component));
+(async function () {
+  hydrateRoot(document.getElementById("root"), createElement(App));
 })();

@@ -7,3 +7,7 @@ import ReactDom from "react-dom";
 
 global.React = React;
 global.ReactDOM = ReactDom;
+
+if (global) {
+  global.isServerCode = true;
+}

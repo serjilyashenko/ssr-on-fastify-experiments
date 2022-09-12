@@ -1,4 +1,6 @@
 /* global React */
+import SuperLink from "./components/SuperLink.js";
+
 const { createElement, Fragment, useState } = React;
 
 export function About() {
@@ -8,7 +10,7 @@ export function About() {
     Fragment,
     null,
     createElement("h1", null, "About"),
-    createElement("div", null, createElement("a", { href: "/" }, "Home")),
+    createElement("div", null, createElement(SuperLink, { href: "/" }, "Home")),
     createElement(
       "div",
       null,
@@ -21,5 +23,3 @@ export function About() {
     )
   );
 }
-
-export default About;

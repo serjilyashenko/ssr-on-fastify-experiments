@@ -1,7 +1,6 @@
-import { createElement } from "react";
 import { renderToString } from "react-dom/server";
 
-export function renderReactComponent(Component) {
+export function renderReactElement(ReactElement) {
   return `
 <!doctype html>
 <html lang="en">
@@ -10,6 +9,7 @@ export function renderReactComponent(Component) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <title>Document</title>
     <style>
         :root {
@@ -19,12 +19,11 @@ export function renderReactComponent(Component) {
 </head>
 <body>
 
-<div id="root">${renderToString(createElement(Component))}</div>
+<div id="root">${renderToString(ReactElement)}</div>
 
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>window.pageComponentName = "${Component.name}";</script>
-<script type="module" src="/bundle.js"></script>
+<script type="module" src="/static/bundle.js"></script>
 </body>
 </html>
 `;

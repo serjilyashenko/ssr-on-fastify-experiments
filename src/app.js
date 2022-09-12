@@ -10,7 +10,10 @@ const __dirname = path.dirname(__filename);
 export async function createServer({ port = 3000 }) {
   const fastify = Fastify({ logger: true });
 
-  fastify.register(fastifyStatic, { root: path.join(__dirname, "../public") });
+  fastify.register(fastifyStatic, {
+    root: path.join(__dirname, "../public"),
+    prefix: "/static/",
+  });
 
   fastify.register(router);
 

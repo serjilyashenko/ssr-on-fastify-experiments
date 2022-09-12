@@ -3,6 +3,7 @@ const { createElement, useState, Fragment } = React;
 
 export function Index() {
   const [count, setCount] = useState(1);
+  const [inputValue, setInputValue] = useState("");
 
   return createElement(
     Fragment,
@@ -22,6 +23,23 @@ export function Index() {
         { onClick: () => setCount((prev) => prev + 1) },
         "count: ",
         count
+      )
+    ),
+    createElement(
+      "div",
+      null,
+      createElement(
+        Fragment,
+        null,
+        createElement("input", {
+          value: inputValue,
+          onChange: (e) => setInputValue(e.target.value),
+        }),
+        createElement(
+          "button",
+          { onClick: () => console.log(">> ", inputValue) },
+          "Go"
+        )
       )
     )
   );

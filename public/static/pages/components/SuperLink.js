@@ -1,14 +1,10 @@
-/* global React, isServerCode */
+/* global React */
 import { useSuperRouter } from "./SuperRouter.js";
 
 const { createElement } = React;
 
 export function SuperLink({ href, children }) {
   const { navigate } = useSuperRouter();
-
-  if (isServerCode) {
-    return createElement("a", { href }, children);
-  }
 
   function onClick(e) {
     e.preventDefault();

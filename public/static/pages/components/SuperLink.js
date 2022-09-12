@@ -1,10 +1,10 @@
 /* global React, isServerCode */
-import { RouterContext } from "../../App.js";
+import { useSuperRouter } from "./SuperRouter.js";
 
-const { createElement, useContext } = React;
+const { createElement } = React;
 
 export function SuperLink({ href, children }) {
-  const { navigate } = useContext(RouterContext);
+  const { navigate } = useSuperRouter();
 
   if (isServerCode) {
     return createElement("a", { href }, children);

@@ -2,46 +2,20 @@
 import { Index } from "./pages/Index.js";
 import { About } from "./pages/About.js";
 import { Empty } from "./pages/Empty.js";
+import { SuperRoute, SuperSwitch } from "./pages/components/SuperRouter.js";
 
-const { createElement, useEffect, createContext, useCallback, useState } =
-  React;
+const { createElement, Fragment } = React;
 
-export const RouterContext = createContext();
-
-export function App({ path }) {
-  const [pathname, setPathname] = useState(path || location.pathname);
-
-  const navigate = useCallback((path) => {
-    history.pushState({}, null, path);
-    setPathname(path);
-  }, []);
-
-  useEffect(() => {
-    function render() {
-      setPathname(location.pathname);
-    }
-
-    window.addEventListener("popstate", render);
-
-    render();
-
-    return () => window.removeEventListener("popstate", render);
-  }, []);
-
+export function App() {
   return createElement(
-    RouterContext.Provider,
-    { value: { navigate } },
+    Fragment,
+    null,
     createElement(
-      (function () {
-        switch (pathname) {
-          case "/":
-            return Index;
-          case "/about":
-            return About;
-          default:
-            return Empty;
-        }
-      })()
+      SuperSwitch,
+      null,
+      createElement(SuperRoute, { path: "/" }, createElement(Index)),
+      createElement(SuperRoute, { path: "/about" }, createElement(About)),
+      createElement(SuperRoute, { path: "*" }, createElement(Empty))
     )
   );
 }

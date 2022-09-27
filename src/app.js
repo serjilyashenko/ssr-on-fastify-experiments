@@ -3,6 +3,7 @@ import { fileURLToPath } from "url";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
 import { router } from "./router.js";
+import { streamHtmlExperimentHandler } from "./helpers/stream-html-experiment.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,8 @@ export async function createServer({ port = 3000 }) {
     root: path.join(__dirname, "../public"),
     prefix: "/static/",
   });
+
+  fastify.get("/html-stream", streamHtmlExperimentHandler);
 
   fastify.register(router);
 

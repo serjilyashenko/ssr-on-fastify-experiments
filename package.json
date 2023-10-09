@@ -1,7 +1,7 @@
 {
   "name": "ssr-on-fastify-experiments",
   "version": "1.0.0",
-  "description": "",
+  "description": "My experiments of the SSR mechanism. Fastify was chosen as a server technology.",
   "main": "server.js",
   "type": "module",
   "scripts": {

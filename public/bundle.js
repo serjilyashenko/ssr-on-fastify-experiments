@@ -7,6 +7,6 @@ const { hydrateRoot } = window.ReactDOM;
 (async function () {
   hydrateRoot(
     document.getElementById("root"),
-    createElement(SuperRouter, null, createElement(App))
+    createElement(SuperRouter, null, createElement(App)),
   );
 })();

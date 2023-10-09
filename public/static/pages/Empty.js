@@ -8,6 +8,6 @@ export function Empty() {
     Fragment,
     null,
     createElement("h1", null, "404"),
-    createElement("div", null, createElement(SuperLink, { href: "/" }, "Home"))
+    createElement("div", null, createElement(SuperLink, { href: "/" }, "Home")),
   );
 }

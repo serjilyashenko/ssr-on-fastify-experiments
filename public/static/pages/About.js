@@ -18,8 +18,8 @@ export function About() {
         "button",
         { onClick: () => setCount((prev) => prev + 1) },
         "count: ",
-        count
-      )
-    )
+        count,
+      ),
+    ),
   );
 }

@@ -33,7 +33,7 @@ export function SuperRouter({ path, children }) {
   return createElement(
     RouterContext.Provider,
     { value: { route, navigate } },
-    children
+    children,
   );
 }
 

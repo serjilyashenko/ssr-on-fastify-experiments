@@ -12,8 +12,8 @@ export function router(fastify, opts, done) {
       .header("Content-Type", "text/html; charset=utf-8")
       .send(
         renderReactElement(
-          createElement(SuperRouter, { path: request.url }, createElement(App))
-        )
+          createElement(SuperRouter, { path: request.url }, createElement(App)),
+        ),
       );
   });
 

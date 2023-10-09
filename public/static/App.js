@@ -15,7 +15,7 @@ export function App() {
       null,
       createElement(SuperRoute, { path: "/" }, createElement(Index)),
       createElement(SuperRoute, { path: "/about" }, createElement(About)),
-      createElement(SuperRoute, { path: "*" }, createElement(Empty))
-    )
+      createElement(SuperRoute, { path: "*" }, createElement(Empty)),
+    ),
   );
 }

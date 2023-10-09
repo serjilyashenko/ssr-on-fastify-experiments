@@ -14,12 +14,12 @@ export function Index() {
     createElement(
       "div",
       null,
-      createElement(SuperLink, { href: "/about" }, "About")
+      createElement(SuperLink, { href: "/about" }, "About"),
     ),
     createElement(
       "p",
       null,
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum eum ex explicabo magni modi mollitia numquam tempora. Eligendi eveniet harum modi, necessitatibus nemo omnis quaerat sequi vel veniam voluptatem."
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum eum ex explicabo magni modi mollitia numquam tempora. Eligendi eveniet harum modi, necessitatibus nemo omnis quaerat sequi vel veniam voluptatem.",
     ),
     createElement(
       "div",
@@ -28,8 +28,8 @@ export function Index() {
         "button",
         { onClick: () => setCount((prev) => prev + 1) },
         "count: ",
-        count
-      )
+        count,
+      ),
     ),
     createElement(
       "div",
@@ -44,9 +44,9 @@ export function Index() {
         createElement(
           "button",
           { onClick: () => console.log(">> ", inputValue) },
-          "Go"
-        )
-      )
-    )
+          "Go",
+        ),
+      ),
+    ),
   );
 }

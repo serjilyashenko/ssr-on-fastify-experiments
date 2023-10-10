@@ -28,7 +28,7 @@ This implementation involves the following steps:
 
 So, we have a backend server with Fastify on board.
 `/public` folder is registered as static and exposed by the http server.
-But we just have a favicon and our JS bundle. Also, we have `static` prefix for public files.
+There are a favicon, a JS bundle and component modules there.
 
 Also, there is a router registered.
 It returns html pages as a http response with help of a `renderReactElement` (`renderer.js` file)
@@ -52,23 +52,11 @@ So, I'm forced to create my components with `createElement` function. As follows
 
 ```js
 export function About() {
-  const [count, setCount] = useState(10);
-
   return createElement(
     Fragment,
     null,
     createElement("h1", null, "About"),
-    createElement("div", null, createElement(SuperLink, { href: "/" }, "Home")),
-    createElement(
-      "div",
-      null,
-      createElement(
-        "button",
-        { onClick: () => setCount((prev) => prev + 1) },
-        "count: ",
-        count,
-      ),
-    ),
+    createElement("p", null, "Lorem ipsum dolor sit amet,..."),
   );
 }
 ```

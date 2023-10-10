@@ -16,7 +16,7 @@ export async function createServer({ port = 3000 }) {
     prefix: "/static/",
   });
 
-  fastify.get("/html-stream", streamHtmlExperimentHandler);
+  fastify.get("/html-stream", streamHtmlExperimentHandler); // This is experiment with html streaming
 
   fastify.register(router);
 

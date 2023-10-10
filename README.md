@@ -6,14 +6,15 @@ I've used `Fastify` as a backend server and `React` as a rendering engine.
 ### Stack
 
 - Fastify
-- React
+- React (but without `jsx` 😅)
 - git-hooks and lint-staged _(read the notes section why)_
 - Prettier
 - eslint
 
 ### Experiments themselves
 
-- wip
+So, we have a backend server with Fastify on board.
+`/public` folder is registered as static and exposed by the http server.
 
 ### Notes
 

@@ -6,9 +6,20 @@
 // react-globals.js adds React from the node_modules to the global node object.
 // ⚠️ Please note that there may be a version inconsistency with React, and it is generally not recommended for real projects.
 
-// So, here is a trick to add react from node_modules to the global node object.
-import React from "react";
-import ReactDom from "react-dom";
+/* global React */
+import { useSuperRouter } from "./SuperRouter.js";
 
-global.React = React;
-global.ReactDOM = ReactDom;
+const { createElement } = React;
+
+export function SuperLink({ href, children }) {
+  const { navigate } = useSuperRouter();
+
+  function onClick(e) {
+    e.preventDefault();
+    navigate(href);
+  }
+
+  return createElement("a", { href, onClick }, children);
+}
+
+export default SuperLink;

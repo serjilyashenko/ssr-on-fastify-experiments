@@ -1,5 +1,5 @@
-import { App } from "./static/App.js";
-import { SuperRouter } from "./static/pages/components/SuperRouter.js";
+import { App } from "./react-modules/App.js";
+import { SuperRouter } from "./react-modules/pages/components/SuperRouter.js";
 
 const { createElement } = window.React;
 const { hydrateRoot } = window.ReactDOM;

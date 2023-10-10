@@ -13,8 +13,15 @@ I've used `Fastify` as a backend server and `React` as a rendering engine.
 
 ### Experiments themselves
 
+#### Fastify
+
 So, we have a backend server with Fastify on board.
 `/public` folder is registered as static and exposed by the http server.
+But we just have a favicon and our JS bundle.
+
+#### React
+
+🚧👷🏼
 
 ### Notes
 

@@ -28,7 +28,7 @@ This implementation involves the following steps:
 
 So, we have a backend server with Fastify on board.
 `/public` folder is registered as static and exposed by the http server.
-There are a favicon, a JS bundle and component modules there.
+It contains a favicon, a JS bundle, and component modules.
 
 Also, there is a router registered.
 It returns html pages as a http response with help of a `renderReactElement` (`renderer.js` file)
@@ -47,8 +47,8 @@ with common wrapper. The wrapper just adds `<html/>`, `<head/>` and `<body/>` (i
 
 #### Server Side React
 
-Just for fun I decided to skip a static building stage 🙈. So, I'm not using `jsx`, `webpack`, etc. in the project.
-So, I'm forced to create my components with `createElement` function. As follows:
+Just for fun, I decided to skip the static building stage 🙈. Therefore, I'm not using `jsx`, `webpack`, etc., in the project.
+Consequently, I'm forced to create my components using `createElement` function, as shown below:
 
 ```js
 export function About() {
@@ -61,8 +61,8 @@ export function About() {
 }
 ```
 
-Now, we have few pages created with React.createElement.
-They are consumed by the router, and basically we have classic MPA(Multi Page Application)
+We also have a few pages created with `React.createElement`.
+These pages are consumed by the router, and, essentially, we have classic MPA(Multi Page Application)
 with react rendering on the server side.
 
 🚧👷🏼‍ If we disable JS, it will be working as MPA application...

@@ -63,9 +63,7 @@ export function About() {
 
 We also have a few pages created with `React.createElement`.
 These pages are consumed by the router, and, essentially, we have classic MPA(Multi Page Application)
-with react rendering on the server side.
-
-🚧👷🏼‍ If we disable JS, it will be working as MPA application...
+with react rendering on the server side. And this works even if JavaScript is disabled in the browser.
 
 #### Client Side React
 

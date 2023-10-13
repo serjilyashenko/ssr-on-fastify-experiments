@@ -133,4 +133,6 @@ global.ReactDOM = ReactDom;
 
 #### Hydration (Experiment #1)
 
+The hydration step transforms the page rendered by the server into SPA (Single Page Application).
+
 🚧👷🏼

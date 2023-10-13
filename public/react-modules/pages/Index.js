@@ -9,51 +9,74 @@
 /* global React */
 import SuperLink from "./components/SuperLink.js";
 
-const { createElement, useState, Fragment } = React;
+const { createElement, useState, useEffect } = React;
 
 export function Index() {
   const [count, setCount] = useState(1);
   const [inputValue, setInputValue] = useState("");
 
+  const [isClientRendered, setIsClientRendered] = useState(false);
+  const renderMessage = isClientRendered
+    ? "<-- hydrated"
+    : "<-- server rendered";
+  const renderColor = isClientRendered
+    ? "var(--client-rendered-color)"
+    : "var(--server-rendered-color)";
+
+  useEffect(() => {
+    setIsClientRendered(true);
+  }, []);
+
   return createElement(
-    Fragment,
+    "div",
     null,
     createElement("h1", null, "Hello Fastify And React 🦐"),
     createElement(
       "div",
       null,
-      createElement(SuperLink, { href: "/about" }, "About"),
+      createElement(SuperLink, { href: "/about" }, "About   "),
+      createElement("span", { style: { color: renderColor } }, renderMessage),
     ),
     createElement(
       "p",
       null,
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum eum ex explicabo magni modi mollitia numquam tempora. Eligendi eveniet harum modi, necessitatibus nemo omnis quaerat sequi vel veniam voluptatem.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias cum eum ex explicabo magni modi mollitia numquam tempora. Eligendi eveniet harum modi, necessitatibus nemo omnis quaerat sequi vel veniam voluptatem.  ",
+      createElement("span", { style: { color: renderColor } }, renderMessage),
     ),
     createElement(
       "div",
-      null,
+      { style: { display: "flex", gap: "10px", marginBottom: "14px" } },
       createElement(
         "button",
         { onClick: () => setCount((prev) => prev + 1) },
         "count: ",
         count,
       ),
+      createElement(
+        "div",
+        { style: { color: renderColor } },
+        (isClientRendered ? "works fine" : "counter doesn't work") +
+          " (" +
+          renderMessage +
+          ")",
+      ),
     ),
     createElement(
       "div",
       null,
+      createElement("input", {
+        value: inputValue,
+        onChange: (e) => setInputValue(e.target.value),
+      }),
       createElement(
-        Fragment,
-        null,
-        createElement("input", {
-          value: inputValue,
-          onChange: (e) => setInputValue(e.target.value),
-        }),
-        createElement(
-          "button",
-          { onClick: () => console.log(">> ", inputValue) },
-          "Go",
-        ),
+        "button",
+        { onClick: () => console.log(">> ", inputValue) },
+        "Go",
+      ),
+      createElement(
+        "span",
+        { style: { color: renderColor, marginLeft: "10px" } },
+        renderMessage,
       ),
     ),
   );

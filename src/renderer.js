@@ -26,6 +26,8 @@ export function renderReactElement(ReactElement) {
             color-scheme: light dark;
             display: flex;
             justify-content: center;
+            --server-rendered-color: hsl(360, 100%, 30%);
+            --client-rendered-color: hsl(100, 100%, 30%);
         }
         body {
             max-width: 800px;

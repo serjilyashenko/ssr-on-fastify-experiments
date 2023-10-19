@@ -153,4 +153,20 @@ Therefore, perhaps we should indicate this fact somehow to the user. More spinne
 
 #### One more problem
 
+Another scenario involves using a controlled [React input](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
+
+```js
+function Component1() {
+  const [value, setValue] = useState("");
+
+  return <input value={value} onChange={(e) => setFirstName(e.target.value)} />;
+}
+```
+
+Again, the server exposes an input field with an empty initial string, allowing the user to type something into the input.
+However, the JS bundle is still in the process of loading. And when the JS bundle is eventually loaded,
+React replaces user's typed text with the empty initial string.
+
+{🚧video}
+
 🚧👷🏼

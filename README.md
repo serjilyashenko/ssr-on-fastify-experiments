@@ -153,13 +153,18 @@ Therefore, perhaps we should indicate this fact somehow to the user. More spinne
 
 #### One more problem
 
-Another scenario involves using a controlled [React input](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
+Another scenario involves using a [controlled React input](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
 ```js
 function Component1() {
   const [value, setValue] = useState("");
 
-  return <input value={value} onChange={(e) => setFirstName(e.target.value)} />;
+  return (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
 }
 ```
 
@@ -167,6 +172,13 @@ Again, the server exposes an input field with an empty initial string, allowing 
 However, the JS bundle is still in the process of loading. And when the JS bundle is eventually loaded,
 React replaces user's typed text with the empty initial string.
 
-{🚧video}
+<figure>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/input_dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/input_light.gif">
+  <img alt="Input experiment gif" width="480px" src="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/input_light.gif">
+</picture>
+<figcaption>The input is cleared when the JS bundle is loaded 🥲</figcaption>
+</figure>
 
 🚧👷🏼

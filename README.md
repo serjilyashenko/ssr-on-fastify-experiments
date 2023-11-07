@@ -143,7 +143,7 @@ Obviously, none of the JS code functionality is working yet, because the bundle 
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/counter_light.gif">
   <img alt="Counter experiment gif" width="480px" src="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/counter_light.gif">
 </picture>
-<figcaption>The counter starts working only after the JS bundle is loaded.</figcaption>
+<figcaption>The counter starts working only after the JS bundle is loaded. 🥲</figcaption>
 </figure>
 
 As I mentioned, this is obvious. However, this is obvious for developers, but it might be confusing for users.

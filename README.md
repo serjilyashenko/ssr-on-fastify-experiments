@@ -158,12 +158,7 @@ Another scenario involves using a [controlled React input](https://react.dev/ref
 function Component1() {
   const [value, setValue] = useState("");
 
-  return (
-    <input
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    />
-  );
+  return <input value={value} onChange={(e) => setValue(e.target.value)} />;
 }
 ```
 
@@ -178,5 +173,10 @@ React replaces user's typed text with the empty initial string.
 </picture>
   
 The input is cleared when the JS bundle is loaded 🥲
+
+I've been noticing the same issue with the main search input on the npm website for quite a while. And this is still there (2023-11-10) 🙈.
+This fact leads me to believe that implementing SSR requires significantly more attention and care than simply integrating Next.js.
+
+But let's think how we are able to fix this bug.
 
 🚧👷🏼

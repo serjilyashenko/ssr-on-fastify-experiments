@@ -177,6 +177,24 @@ The input is cleared when the JS bundle is loaded 🥲
 I've been noticing the same issue with the main search input on the npm website for quite a while. And this is still there (2023-11-10) 🙈.
 This fact leads me to believe that implementing SSR requires significantly more attention and care than simply integrating Next.js.
 
-But let's think how we are able to fix this bug.
+Let's consider how we can address this bug. We can utilize an uncontrolled React input. In this scenario, the React client code won't overwrite the input value with the value from the useState.
+
+```js
+function Component2() {
+  function onSubmit(e) {
+    e.preventDefault();
+    console.log(">>", e.target.input1.value);
+  }
+
+  return (
+    <form onSubmit={onSubmit}>
+      <input name="input1" />
+      <input type="submit" />
+    </form>
+  );
+}
+```
+
+So far, this approach works well. However, what if a user is exceptionally quick or has a slow internet connection? They might finish inputting and press submit before the JS bundle has fully loaded. In such cases, the form will function like a standard HTML form and send a POST request to the current URL 🤷🏼‍♂️. To tackle this issue, we need to extend support for this on the BE side and ensure our page can function in two modes: with and without JS.
 
 🚧👷🏼

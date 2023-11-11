@@ -64,6 +64,7 @@ export function Index() {
     createElement(
       "div",
       null,
+      createElement("div", null, "Controlled input"),
       createElement("input", {
         value: inputValue,
         onChange: (e) => setInputValue(e.target.value),
@@ -77,6 +78,27 @@ export function Index() {
         "span",
         { style: { color: renderColor, marginLeft: "10px" } },
         renderMessage,
+      ),
+    ),
+    createElement(
+      "div",
+      null,
+      createElement("div", null, "Uncontrolled input"),
+      createElement(
+        "form",
+        {
+          onSubmit: function (e) {
+            e.preventDefault();
+            console.log(">>", e.target.input1.value);
+          },
+        },
+        createElement("input", { name: "input1" }),
+        createElement("input", { type: "submit", value: "Go" }),
+        createElement(
+          "span",
+          { style: { color: renderColor, marginLeft: "10px" } },
+          renderMessage,
+        ),
       ),
     ),
   );

@@ -11,8 +11,6 @@ I've used `Fastify` as a backend server and `React` as a rendering engine.
 - Prettier
 - eslint
 
-### Story
-
 #### Pre-commit hook
 
 Although it's not directly related to the repository's main topic, I've added pre-commit checks for the project.
@@ -177,7 +175,8 @@ The input is cleared when the JS bundle is loaded 🥲
 I've been noticing the same issue with the main search input on the npm website for quite a while. And this is still there (2023-11-10) 🙈.
 This fact leads me to believe that implementing SSR requires significantly more attention and care than simply integrating Next.js.
 
-Let's consider how we can address this bug. We can utilize an uncontrolled React input. In this scenario, the React client code won't overwrite the input value with the value from the useState.
+Let's consider how we can address this bug. We can utilize an uncontrolled React input. In this scenario,
+the React client code won't overwrite the input value with the value from the useState.
 
 ```js
 function Component2() {
@@ -195,6 +194,15 @@ function Component2() {
 }
 ```
 
-So far, this approach works well. However, what if a user is exceptionally quick or has a slow internet connection? They might finish inputting and press submit before the JS bundle has fully loaded. In such cases, the form will function like a standard HTML form and send a POST request to the current URL 🤷🏼‍♂️. To tackle this issue, we need to extend support for this on the BE side and ensure our page can function in two modes: with and without JS.
+So far, this approach works well. However, what if a user is exceptionally quick or has a slow internet connection?
+They might finish inputting and press submit before the JS bundle has fully loaded. In such cases,
+the form will function like a standard HTML form and send a POST request to the current URL 🤷🏼‍♂️.
+To tackle this issue, we need to extend support for this on the BE side and ensure our page can function in two modes:
+with and without JS.
+
+As far as I am aware, [Remix](https://remix.run) addresses cases like this.
+It includes a form component that functions just as I described above. I believe this is a positive aspect.
+That is why it looks interesting for me. Unfortunately, Next.js does not provide any specific recommendations or
+best practices for solving such problems.
 
 🚧👷🏼

@@ -231,7 +231,8 @@ hydrateRoot(
 );
 ```
 
-🚧👷🏼SuperRouter is pretty strait forward. SuperRouter navigate and useEffect As SPA
+🚧👷🏼SuperRouter on BE is pretty strait forward. It ignores useEffect and methods.
+🚧👷🏼SuperRouter on FE operates with url without page reload as SPA does.
 
 🚧👷🏼SuperLink. My favourite part is that despite this works as SPA navigation. This still works like regular link.
 Browser indicates url. Also I'm able to CopyLink and OpenInNewTab

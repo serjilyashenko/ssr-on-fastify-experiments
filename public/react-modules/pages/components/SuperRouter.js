@@ -19,7 +19,7 @@ const {
 const RouterContext = createContext();
 
 export function SuperRouter({ path, children }) {
-  const [route, setRoute] = useState(path || location.pathname);
+  const [route, setRoute] = useState(path);
 
   const navigate = useCallback((path) => {
     history.pushState({}, null, path);

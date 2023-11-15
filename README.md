@@ -207,8 +207,31 @@ best practices for solving such problems.
 
 #### SuperRouter
 
-🚧👷🏼SuperRouter should work on client side and on backend side. Initial route for backend SuperRouter is from a request.
-The client side gets initial route value from location.pathname .
+I've implemented components SuperRouter, SuperRoute, and SuperSwitch, which work exactly like ReactRouter components.
+SuperRouter should function on both the client and the backend. The backend part retrieves the initial route from request.url,
+while the frontend part obtains the initial router from location.pathname during hydration.
+
+```js
+// src/router.js (BE part)
+fastify.get("/*", async (request, reply) => {
+  reply
+    .code(200)
+    .header("Content-Type", "text/html; charset=utf-8")
+    .send(
+      renderReactElement(
+        createElement(SuperRouter, { path: request.url }, createElement(App)),
+      ),
+    );
+});
+
+// public/bundle.js (FE part)
+hydrateRoot(
+  document.getElementById("root"),
+  createElement(SuperRouter, { path: location.pathname }, createElement(App)),
+);
+```
+
+🚧👷🏼SuperRouter is pretty strait forward. SuperRouter navigate and useEffect As SPA
 
 🚧👷🏼SuperLink. My favourite part is that despite this works as SPA navigation. This still works like regular link.
 Browser indicates url. Also I'm able to CopyLink and OpenInNewTab

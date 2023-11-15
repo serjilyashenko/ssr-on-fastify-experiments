@@ -18,6 +18,6 @@ const { hydrateRoot } = ReactDOM;
 (async function () {
   hydrateRoot(
     document.getElementById("root"),
-    createElement(SuperRouter, null, createElement(App)),
+    createElement(SuperRouter, { path: location.pathname }, createElement(App)),
   );
 })();

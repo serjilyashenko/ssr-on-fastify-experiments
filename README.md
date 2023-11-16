@@ -231,8 +231,45 @@ hydrateRoot(
 );
 ```
 
-🚧👷🏼SuperRouter on BE is pretty strait forward. It ignores useEffect and methods.
-🚧👷🏼SuperRouter on FE operates with url without page reload as SPA does.
+The SuperRouter looks like this:
+
+```js
+export function SuperRouter({ path, children }) {
+  const [route, setRoute] = useState(path);
+
+  const navigate = useCallback((path) => {
+    history.pushState({}, null, path);
+    setRoute(path);
+  }, []);
+
+  useEffect(() => {
+    function render() {
+      setRoute(location.pathname);
+    }
+    window.addEventListener("popstate", render);
+    render();
+    return () => window.removeEventListener("popstate", render);
+  }, []);
+
+  return createElement(
+    RouterContext.Provider,
+    { value: { route, navigate } },
+    children,
+  );
+}
+```
+
+When it works on the BE side, everything is pretty straightforward. It ignores the useEffect and navigate method.
+Meanwhile, it simply passes the route via the context api, and later, the SuperSwitch determines which page component
+should be rendered based on the received route.
+
+When the SuperRouter is executed on the FE side, in addition to passing the route to the SuperSwitch, it facilitates the
+SPA navigation function. The SPA seamlessly switches between page components and manipulates the URL.
+When navigating to another page, the SuperRouter silently updates the browser's history state,
+then updates the route and passes it to the SuperSwitch to change the page component.
+
+We utilize the useEffect hook in here to support the functionality of the browser's back and forward buttons.
+This hook listens for the popstate event and updates the route accordingly.
 
 🚧👷🏼SuperLink. My favourite part is that despite this works as SPA navigation. This still works like regular link.
 Browser indicates url. Also I'm able to CopyLink and OpenInNewTab

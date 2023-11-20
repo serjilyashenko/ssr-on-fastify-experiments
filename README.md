@@ -271,5 +271,33 @@ then updates the route and passes it to the SuperSwitch to change the page compo
 We utilize the useEffect hook in here to support the functionality of the browser's back and forward buttons.
 This hook listens for the popstate event and updates the route accordingly.
 
-🚧👷🏼SuperLink. My favourite part is that despite this works as SPA navigation. This still works like regular link.
-Browser indicates url. Also I'm able to CopyLink and OpenInNewTab
+#### SuperLink
+
+And last but not least, the component is SuperLink
+
+```js
+export function SuperLink({ href, children }) {
+  const { navigate } = useSuperRouter();
+
+  function onClick(e) {
+    e.preventDefault();
+    navigate(href);
+  }
+
+  return createElement("a", { href, onClick }, children);
+}
+```
+
+The BE ignores the onClick handler and renders HTML with a regular link with a regular href attribute. Even without
+JS enabled, it works like a regular link, leading us to the target page. So, we don't need to wait for JS bundle
+to navigate another page. Also, we can "Copy Link" or "Open Link In New Tab" from the context menu if we right-click 🎉.
+
+Later, when the JS bundle is loaded and the HTML is hydrated with React Virtual DOM, onClick begins
+handling the link clicks. It prevents the default behavior and calls the SuperRouter navigate method to redirect us
+to another page.
+
+So, the links implementation combines the best of both worlds (SPA and MPA).
+
+#### HTML streaming
+
+🚧👷

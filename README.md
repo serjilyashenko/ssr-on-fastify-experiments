@@ -300,4 +300,12 @@ So, the links implementation combines the best of both worlds (SPA and MPA).
 
 ### HTML streaming
 
-🚧👷
+And my latest experiment in the current project involves HTML streaming. This is not related to SSR in any way;
+I was simply curious about how HTML streaming looks in the browser. I sent a string array with HTML using
+a readable stream. In the browser, it looks like this:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/html-stream_dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/html-stream_light.gif">
+  <img alt="Input experiment gif" width="480px" src="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/html-stream_light.gif">
+</picture>

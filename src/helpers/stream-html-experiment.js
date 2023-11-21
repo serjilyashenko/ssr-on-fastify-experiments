@@ -8,9 +8,9 @@ export async function streamHtmlExperimentHandler(request, reply) {
       '    <meta charset="UTF-8">\n' +
       '    <meta name="viewport"\n' +
       '          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">\n' +
-      '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">\n' +
       '    <meta http-equiv="X-UA-Compatible" content="ie=edge">\n' +
       "    <title>Document</title>\n" +
+      "<style>:root { color-scheme: light dark; display: flex; justify-content: center;\n }\n body {\n max-width: 900px;\n width: 100%;\n padding: 24px;\n }</style>" +
       "</head>\n",
     "<body>\n" + "<h1>Hello Streaming HTML</h1>\n",
     "<p>\n" +

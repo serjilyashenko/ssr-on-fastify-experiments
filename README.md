@@ -11,6 +11,17 @@ I've used `Fastify` as a backend server and `React` as a rendering engine.
 - Prettier
 - eslint
 
+### Context
+
+In August 2022, I was presented with a new job opportunity, and the upcoming project was set to be developed using
+Next.js. Next.js provides SSR capabilities out of the box. While I had previously explored and experimented with SSR,
+I decided to delve deeper into the topic to enhance my understanding. Consequently, I initiated the current personal
+project to validate my theories and ideas, attempting to build my own oversimplified version of
+"Next.js."
+
+A year later, in autumn 2023, I revisited the project and documented its key components in the current README file.
+If you are interested in reading about my experiments, feel free to explore the details outlined below.
+
 ### Pre-commit hook
 
 Although it's not directly related to the repository's main topic, I've added pre-commit checks for the project.

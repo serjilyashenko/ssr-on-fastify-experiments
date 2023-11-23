@@ -320,3 +320,19 @@ a readable stream. In the browser, it looks like this:
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/html-stream_light.gif">
   <img alt="Input experiment gif" width="480px" src="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/html-stream_light.gif">
 </picture>
+
+### Conclusion
+
+It appears that SSR is more than just rendering HTML on the backend and subsequent hydration. It demands a new way of
+thinking and introduces new challenges. Unfortunately, Next.js does not offer a comprehensive solution or best practices
+to address the issues outlined in the "Hydration" and "One more problem" sections of the article. Consequently,
+these problems manifest on various sites, including npm and even the Vercel blog (given that Vercel owns Next.js 🙈).
+
+Moreover, to achieve a robust SSR application, it becomes necessary to support and test two versions: the HTML generated
+by the BE and the client-side SPA. Ensuring successful hydration is critical aspect as well.
+
+So, I recommend to evaluate whether your project truly benefits from SSR or if the cost of handling its
+consequences outweighs its advantages. Perhaps your project can thrive with a well-tested SPA, or maybe an MPA aligns
+perfectly with your needs.
+
+Cheers🥂

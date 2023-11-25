@@ -183,8 +183,17 @@ React replaces user's typed text with the empty initial string.
   
 The input is cleared when the JS bundle is loaded 🥲
 
-I've been noticing the same issue with the main search input on the npm website for quite a while. And this is still there (2023-11-10) 🙈.
-This fact leads me to believe that implementing SSR requires significantly more attention and care than simply integrating Next.js.
+I've been noticing the same issue with the main search input on the npm website for few years. And this is still there (2023-11-10) 🙈.
+And I noticed the same even on the Vercel blog website (2023-11-25). Given that Vercel owns Next.js 🙈
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/vercel_dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/vercel_light.gif">
+  <img alt="Input experiment gif" width="480px" src="https://raw.githubusercontent.com/serjilyashenko/ssr-on-fastify-experiments/master/images/vercel_light.gif">
+</picture>
+
+This observation leads me to believe that implementing SSR demands considerably more attention and care than merely
+integrating Next.js or implementing BE rendering + hydration.
 
 Let's consider how we can address this bug. We can utilize an uncontrolled React input. In this scenario,
 the React client code won't overwrite the input value with the value from the useState.
